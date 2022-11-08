@@ -1,5 +1,5 @@
-public class task22 {
-    
+public class task23 {
+
     public static class Room{
 
         int number;
@@ -30,15 +30,18 @@ public class task22 {
             return occupied;
         }
 
-        void displayStatus(){
-            System.out.println("Number: "+this.number+"  Beds: "+this.beds+"  Occupied: "+this.occupied+"  Guest Name: "+this.guestName);
-            System.out.println("");
+        public String toString() {
+            return "number: " + this.number +
+            "beds: " + this.beds +
+            "occupied: " + this.occupied + 
+            "guest name: " + this.guestName;
+
         }
 
         static void specificRoomsReport(int beds, Room[] rooms){
             for(Room room : rooms){
                 if (room.beds == beds){
-                    room.displayStatus();
+                    room.toString();
                 }
             }
         }
@@ -67,8 +70,8 @@ public class task22 {
             }
             System.out.println("Vacant beds: "+vacantBeds);
             System.out.println("");
-        }
-    }
+        }  
+    } 
 
     public static void main(String[] args){
         Room r1 = new Room(1);
@@ -86,10 +89,10 @@ public class task22 {
         rooms[4] = r5;
         rooms[5] = r6;
 
-        rooms[0].displayStatus();
+        rooms[0].toString();
 
         for(Room room : rooms){
-            room.displayStatus(); 
+            room.toString(); 
         }
 
         Room.specificRoomsReport(2, rooms);
